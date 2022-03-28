@@ -1,0 +1,99 @@
+\documentclass[a4paper,10pt,twoside]{report}
+\usepackage{geometry}\geometry{a4paper,top=3.5cm,bottom=3.5cm,%
+left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}%Per il Frame attrono le immagini e il valign
+\usepackage{subfig}
+\usepackage{amsmath,amsfonts,amssymb,braket,mathrsfs}
+\usepackage{float}
+\usepackage{tabularx,booktabs}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{pdfpages} %Per gli allegati
+%\usepackage{minipage}
+\usepackage[output-decimal-marker={,}]{siunitx}
+\DeclareSIUnit \days {gg}
+%ILe tre righe sotto ervono per mettere il grassetto dentro la tabelle siunitex usando \B, il rosso usando \RED, e il verde usando \GREEN
+\sisetup{detect-weight,mode=text}
+\usepackage{etoolbox}
+\newrobustcmd\B{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}
+\newrobustcmd\RED{\DeclareFontSeriesDefault[rm]{bf}{b}\color{red}}
+\newrobustcmd\GREEN{\DeclareFontSeriesDefault[rm]{bf}{b}\color{myGreen}}
+%%
+\usepackage{tikz}
+\usepackage{pgfplots,pgfplotstable}
+%\pgfplotsset{compat=1.15} %indica la versione da utilizzare per pgfplot
+\usetikzlibrary{patterns} % per il tratteggio
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
+%\usepackage{stanli}
+\usepackage{xspace}% per lo spazio intelligente
+\newcommand{\e}{\`E\xspace}  %E'
+\usepackage{titlesec} % per formato custom dei titoli dei capitoli
+%\usepackage{sideways}%%%
+% redefinizione del formato del titolo del capitolo
+      % da formato
+      %   Capitolo X
+      %   Titolo capitolo
+      %   a formato
+      %      Titolo capitolo 
+	\titleformat{\chapter}
+        {\normalfont\Huge\bfseries}{}{0em}{}
+	\titlespacing*{\chapter}{0pt}{0in}{0.02in}
+	\titlespacing*{\section}{0pt}{0.2in}{0.02in}
+	\titlespacing*{\subsection}{0pt}{0.10in}{0.02in}
+%serve per la didascalia di tabelle e figure:
+\usepackage{caption}
+\captionsetup{tableposition=top,figureposition=bottom,font=small}\captionsetup{format=hang,labelfont={bf,color=pantone186}} %didascalie a più righe allineate e il nome in grassetto
+%non viene allineato a sinistra se la didascalia è corta una sola riga. PERCHé??
+\usepackage{xcolor}
+%serve per mettere il codice con lo sfondo grigio chiaro
+\definecolor{pantone186}{RGB}{206, 17, 38} %il colore del logo UNITN
+\definecolor{myGray}{gray}{0.5} %più basso più scuro è
+\definecolor{myGreen}{rgb}{0.0, 0.5, 0.0}
+\usepackage{listings} 
+\lstset{basicstyle=\small\ttfamily,
+backgroundcolor=\color{black!10},%
+boxpos=c,%
+stringstyle=\itshape,		
+lineskip=3pt,%
+numbers=left,
+numberstyle=\footnotesize,}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{import}
+\begin{document}
+\input{CHAPTERS/Titolo.tex}
+\tableofcontents
+%\setcounter{page}{1}
+%Tabelle e figure sulla stessa pagina:
+%Le aggiunge all'indice. phantomsection serve per non far casini con hyperref
+\clearpage
+\begingroup
+   %\let\cleardoublepage\relax  % book
+    \let\clearpage\relax        % report
+        \listoftables
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Elenco delle tabelle}
+\endgroup
+        %
+        \clearpage
+\begingroup
+        \let\clearpage\relax
+        \listoffigures
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Elenco delle figure}
+\endgroup
+%
+%%%%%%%%%%
+%Comandi aggiunti:
+%%%%%%%%%%
+\newcommand{\red}[1]{\textcolor{pantone186}{#1}}
+%
+
+\input{CHAPTERS/chap1_Introduzione.tex}
+
+\end{document} 
