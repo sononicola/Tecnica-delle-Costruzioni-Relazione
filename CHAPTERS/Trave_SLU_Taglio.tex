@@ -1,0 +1,186 @@
+\chapter{Trave: Taglio SLU}
+Si progettano ora le armature trasversali resistenti a taglio. 
+Si sceglie di usare staffe ovunque e non ferri piegati, pertanto l'inclinazione di esse sarà sempre pari ad $\alpha = \SI{90}{\degree}$.
+
+Agli appoggi, dove quindi il taglio è maggiore, si verificherà prima se è sufficiente la resistenza a taglio senza armatura specifica, in caso contrario si procederà al progetto della stessa.
+In campata invece, dove il taglio è pressoché nullo, si utilizzerà sicuramente l'armatura trasversale minima.
+
+\section{Progetto e verifica agli appoggi}
+\paragraph{Verifica senza armatura specifica a taglio}
+\begin{equation}
+    V_{Rd} = \max \left\{ \left(\frac{0.18 \, k \, (100 \, \rho_l \, f_{ck})^{\tfrac{1}{3}}}{\gamma_c} + 0.15 \, \sigma _{cp}\right) b_w d \; ; \;(\nu_{min} + 0.15\sigma _{cp}) \, b_w \, d \right\}
+\end{equation}
+dove 
+\[
+    \begin{split}
+        k &= \min \left\{ 1 + \left(\frac{200}{d}\right)^ {\tfrac{1}{2}} \; ; \; 2\right\} \\
+        \nu_{min} &= 0.035 k ^ \frac{3}{2} f_{ck}^ \frac{1}{2} \\
+        \rho_l &= \min \left\{ \frac{A_{sl}}{b_w d} \; ; \; 0.02\right\} \\
+        \sigma_{cp} &= \min \left\{ \frac{N_{Ed}}{A_c} \; ; \; 0.2 f_{cd} \right\} \\
+    \end{split}
+\]
+e in cui $A_{sl}$ corrisponde all'area tesa longitudinale $A_s$ e $b_w$ coincide con la base $B$ della sezione rettangolare.
+
+Tale procedimento è stato appliccato per tutti gli appoggi e come si evince dalla tabella \ref{tab:V_no_specific_armor} non è sufficiente a garantire la resistenza a taglio. 
+\begin{table}[htb]
+    \centering
+    \scriptsize
+    \caption{ULS taglio senza armatura}
+    \label{tab:V_no_specific_armor}
+    \begin{tabular}{
+        l
+        c
+        S[table-format=3.3]
+        S[table-format=1.2]
+        S[table-format=1.2]
+        S[table-format=1.2]
+        S[table-format=1.2]
+        S[table-format=3.3]
+        S[table-format=3.3]
+        S[table-format=3.3]
+        c}
+    \toprule
+    \multirow{2}{*}{Sez.} & \multirow{2}{*}{$A_{sl}$} & {$V_{Ed}$} & {\multirow{2}{*}{$k$}} & {\multirow{2}{*}{$\nu_{min}$}} & {$\rho_l$} & {$\sigma_{cp}$} & {$V_{Rd,1}$} & {$V_{Rd,2}$} & {$V_{Rd}$} &  \multirow{2}{*}{$V_{Ed}<V_{Rd}$} \\
+     & &{\si{[\kilo\newton]}} & & &{\si{[\percent]}}&{\si{[\mega\pascal]}}&{\si{[\kilo\newton]}}&{\si{[\kilo\newton]}}&{\si{[\kilo\newton]}}& \\
+    \midrule
+    A1 sx & 2Ø18 & 0.000   & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \checked \\
+    A1 dx & 2Ø18 & 144.220 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A2 sx & 2Ø18 & 236.080 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A2 dx & 6Ø18 & 275.030 & 1.66 & 0.37 & 1.11 & 0.00 & 83.103 & 0.000 & 83.103 & \notchecked \\
+    A3 sx & 2Ø18 & 275.730 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A3 dx & 6Ø18 & 263.720 & 1.66 & 0.37 & 1.11 & 0.00 & 83.103 & 0.000 & 83.103 & \notchecked \\
+    A4 sx & 2Ø18 & 254.150 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A4 dx & 6Ø18 & 236.150 & 1.66 & 0.37 & 1.11 & 0.00 & 83.103 & 0.000 & 83.103 & \notchecked \\
+    A5 sx & 2Ø18 & 255.130 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A5 dx & 6Ø18 & 235.450 & 1.66 & 0.37 & 1.11 & 0.00 & 83.103 & 0.000 & 83.103 & \notchecked \\
+    A6 sx & 2Ø18 & 227.870 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A6 dx & 6Ø18 & 184.800 & 1.66 & 0.37 & 1.11 & 0.00 & 83.103 & 0.000 & 83.103 & \notchecked \\
+    A7 sx & 2Ø18 & 149.290 & 1.66 & 0.37 & 0.37 & 0.00 & 57.621 & 0.000 & 57.621 & \notchecked \\
+    A7 dx & 3Ø18 & 0.000   & 1.66 & 0.37 & 0.55 & 0.00 & 65.959 & 0.000 & 65.959 & \checked \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
+
+
+
+\paragraph{Progetto del passo staffe}
+Occorre perciò progettare un'armatura specifica che resista alle sollecitazioni taglianti.
+In particolare si fa riferimento al capitolo \normaref{4.1.2.3.5.2} delle \norma{NTC18}, il quale specifica che la resistenza di progetto a taglio è la minore tra la resistenza a taglio trazione $V_{Rsd}$ e la resistenza taglio compressione $V_{Rcd}$, calcolate come:
+\begin{align}
+    V_{Rd} &= \min \{V_{Rsd} ;  V_{Rcd} \} \label{eq:vrd}\\
+    V_{Rsd} &= 0.9\,d\,\frac{A_{sw}}{s}\,f_{yd}\,(\cot\alpha + \cot\vartheta) \, \sin\alpha \\
+    V_{Rcd} &= 0.9\,d\,b_w\,\alpha_c\,\nu\,f_{cd}\,\frac{\cot\alpha + \cot\vartheta}{1 + \cot^2\vartheta} 
+\end{align}
+
+Da queste equazioni le incognite libere sono l'inclinazione $\vartheta$ del puntone e il passo delle staffe $s$. 
+Gli altri parametri sono tutti fissati da normativa o scelti preliminarmente.
+Si sono scelte infatti staffe a due bracci di diametro $\varnothing_{st} = \SI{8}{\milli\metre}$.
+
+Eguagliando la resistenza taglio compressione $V_{Rcd}$ al taglio sollecitante $V_{Ed}$ è possibile ricavare l'angolo $\vartheta$, da cui:
+\begin{equation}
+    \vartheta_\textup{design} = \max \left\{\frac{1}{2} \arcsin \frac{2\,V_{Ed}}{0.9\,d\,b_w\,\alpha_c\,\nu\,f_{cd}}  \; ; \; \SI{21.8}{\degree}\right\} \quad ,
+\end{equation}
+sostituendo tale valore dell'angolo nell'equazione del taglio trazione $V_{Rsd}$ e uguagliando anch' essa a $V_{Ed}$, si ottiene il passo massimo di progetto:
+\begin{equation}
+    s_\textup{design} = 0.9\,d\,A_{sw}\,f_{yd}\, \frac{\cot \vartheta_\textup{design}}{V_{Ed}} \quad .
+\end{equation}
+
+Tali valori di progetto del passo massimo sono riportati in tabella \ref{tab:V_passo}. 
+Successivamente si è scelto il passo reale delle staffe con il quale si è proceduto poi alla verifica.
+Si è cercato di avere le meno differenze di diverso passo possibile, in modo da non creare confusione in fase costruttiva dell'opera.
+
+
+\begin{table}[htb]
+    \centering
+    \scriptsize
+    \caption{ULS taglio design passi}
+    \label{tab:V_passo}
+    \begin{tabular}{
+                        l
+                        S[table-format=3.3]
+                        S[table-format=2.1]
+                        S[table-format=2.1]
+                        S[table-format=3.1]
+                }
+    \toprule
+    \multirow{2}{*}{Sez.} & {$V_{Ed}$} & {$\vartheta_\textup{design}$} & {$\vartheta_\textup{design, reale}$} & {$s_\textup{design}$} \\
+    & {\si{[\kilo\newton]}} & {\si{[\degree]}} &  {\si{[\degree]}} &  {\si{[\milli\metre]}} \\
+
+    \midrule
+    A1 sx & 0.000 & 0.0 & 21.8 & $\infty$ \\
+    A1 dx & 144.220 & 9.6 & 21.8 & 282.3 \\
+    A2 sx & 236.080 & 16.2 & 21.8 & 172.5 \\
+    A2 dx & 275.030 & 19.4 & 21.8 & 148.0 \\
+    A3 sx & 275.730 & 19.4 & 21.8 & 147.7 \\
+    A3 dx & 263.720 & 18.4 & 21.8 & 154.4 \\
+    A4 sx & 254.150 & 17.6 & 21.8 & 160.2 \\
+    A4 dx & 236.150 & 16.2 & 21.8 & 172.4 \\
+    A5 sx & 255.130 & 17.7 & 21.8 & 159.6 \\
+    A5 dx & 235.450 & 16.2 & 21.8 & 172.9 \\
+    A6 sx & 227.870 & 15.6 & 21.8 & 178.7 \\
+    A6 dx & 184.800 & 12.4 & 21.8 & 220.3 \\
+    A7 sx & 149.290 & 9.9 & 21.8 & 272.7 \\
+    A7 dx & 0.000 & 0.0 & 21.8 & $\infty$ \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
+
+\paragraph{Verifica armature}
+Fissato ora il passo reale $s$ delle staffe, eguagliando $V_{Rcd}$ con $V_{Rsd}$ è possibile calcolare il valore di theta in funzione di tutti gli altri parametri:
+\begin{equation}
+    \cot\vartheta_\textup{sezione} = \sqrt{-1 + \frac{\alpha_c \cdot b_w \cdot f_{cd} \cdot \nu \cdot s}{A_{sw}\cdot f_{yd} \cdot \sin\alpha}}
+\end{equation}
+
+In base al valore dell'angolo $\vartheta$ (o analogamente della sua cotangente) si attivano i tre diversi meccanismi resistenti e di conseguenza va scelto il valore di $\vartheta$ reale.
+\begin{equation}
+    \vartheta_\textup{reale} = 
+\begin{cases}
+    \vartheta_\textup{sezione} & \text{se} \quad \SI{21.8}{\degree}<\vartheta_\textup{sezione}<\SI{45}{\degree} \\
+    \SI{21.8}{\degree} & \text{se} \quad \vartheta_\textup{sezione}\leq\SI{21.8}{\degree} \\
+    \SI{45}{\degree} & \text{se} \quad \vartheta_\textup{sezione}\geq\SI{45}{\degree} \\
+\end{cases}\quad,
+\end{equation} 
+dove nel primo caso i valori della resistenza a taglio lato calcestruzzo e lato acciaio saranno i medesimi, nel secondo la crisi avviene lato acciaio, mentre nell'ultimo lato calcestruzzo.
+
+Con tali valori di $\vartheta_\textup{reale}$ è possibile infine verificare la sezione con le formule dei due meccanismi.
+
+Nella tabella \ref{tab:V_with_armor} viene riportato tale procedimento per tutte le sezioni di verifica e la verifica risulta pertanto soddifìsfatta.
+\begin{table}[htb]
+    \centering
+    \scriptsize
+    \caption{ULS taglio con armatura}
+    \label{tab:V_with_armor}
+    \begin{tabular}{
+        l
+        c
+        S[table-format=3.3]
+        S[table-format=2.1]
+        S[table-format=2.1]
+        S[table-format=3.3]
+        S[table-format=3.3]
+        S[table-format=3.3]
+        r
+        S[table-format=2.1]}
+    \toprule
+    \multirow{2}{*}{Sez.} & \multirow{2}{*}{$A_{sw}$} & {$V_{Ed}$} & {$\vartheta_\textup{sezione}$} & {$\vartheta_\textup{reale}$} & {$V_{Rsd}$} & {$V_{Rcd}$} & {$V_{Rd}$} & \multicolumn{2}{l}{$V_{Ed}<V_{Rd}$} \\
+    &&{\si{[\kilo\newton]}}&{\si{[\degree]}}&{\si{[\degree]}}&{\si{[\kilo\newton]}}&{\si{[\kilo\newton]}}&{\si{[\kilo\newton]}}&&{\si{[\percent]}}\\
+    \midrule
+    A1 sx & 2br.Ø8/220 & 0.000   & 16.9 & 21.8 & 185.076 & 303.346 & 185.076 & \checked & 0.0 \\
+    A1 dx & 2br.Ø8/220 & 144.220 & 16.9 & 21.8 & 185.076 & 303.346 & 185.076 & \checked & 77.9 \\
+    A2 sx & 2br.Ø8/140 & 236.080 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 81.2 \\
+    A2 dx & 2br.Ø8/140 & 275.030 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 94.6 \\
+    A3 sx & 2br.Ø8/140 & 275.730 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 94.8 \\
+    A3 dx & 2br.Ø8/140 & 263.720 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 90.7 \\
+    A4 sx & 2br.Ø8/140 & 254.150 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 87.4 \\
+    A4 dx & 2br.Ø8/140 & 236.150 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 81.2 \\
+    A5 sx & 2br.Ø8/140 & 255.130 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 87.7 \\
+    A5 dx & 2br.Ø8/140 & 235.450 & 21.3 & 21.8 & 290.834 & 303.346 & 290.834 & \checked & 81.0 \\
+    A6 sx & 2br.Ø8/160 & 227.870 & 19.9 & 21.8 & 254.480 & 303.346 & 254.480 & \checked & 89.5 \\
+    A6 dx & 2br.Ø8/160 & 184.800 & 19.9 & 21.8 & 254.480 & 303.346 & 254.480 & \checked & 72.6 \\
+    A7 sx & 2br.Ø8/220 & 149.290 & 16.9 & 21.8 & 185.076 & 303.346 & 185.076 & \checked & 80.7 \\
+    A7 dx & 2br.Ø8/220 & 0.000   & 16.9 & 21.8 & 185.076 & 303.346 & 185.076 & \checked & 0.0 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
