@@ -3,21 +3,21 @@
 In questo paragrafo si affronta la verifica delle tensioni massime di esercizio per le sezioni della trave già precedentemente definite agli SLU, pertanto le caratteristiche geometriche e di armature sono le medesime.
 
 Le ipotesi alla base di tale verifica riguardano la capacità di resistenza del calcestruzzo: esso infatti non si considera resistente a trazione, ovvero è in stato 2.
-Si ipotizza inoltre il comportamento lineare ed elastico di calcestruzzo e acciaio e con un coefficiente di omogeinizzazione $n = 15$.
+Si ipotizza inoltre il comportamento lineare ed elastico di calcestruzzo e acciaio e con un coefficiente di omogenizzazione $n = 15$.
 
 In riferimento alle \norma{NTC18} al capitolo \normaref{4.1.2.2.5} si deve avere che le tensioni di esercizio siano minori di quelle resistenti.
 Si farà riferimento alla combinazione rara e a quella quasi permanente, con le tensioni resistenti riportate all'inizio di questo documento, al capitolo \ref{chap:materiali}.
 
-Infine le formule che seguiranno faranno riferimento alla nomenclatura visibile in figura \ref{fig:sle_convenzione}.
+Infine le formule che seguiranno faranno riferimento alla nomenclatura visibile in figura \ref{fig:sle_convenzione_noTraz}.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[height=0.25\textheight]{IMG/IPE_slu_progetto.pdf}
-    \caption{Convenzione e nomenclatura utilizzata gli SLE}
-    \label{fig:sle_convenzione}
+    \includegraphics[height=0.25\textheight]{IMG/IPE_sle_cls_noTraz.pdf}
+    \caption{Convenzione e nomenclatura utilizzata agli SLE, con ipotesi di CLS non resistente a trazione}
+    \label{fig:sle_convenzione_noTraz}
   \end{figure}
   
-Come primo passo occorre calcolare la posizione dell'asse netro $nn$ con la coordinata $x$. 
+Come primo passo occorre calcolare la posizione dell'asse neutro $nn$ con la coordinata $x$. 
 Per farlo è possibile risolvere il sistema di equilibrio alla traslazione e momento, oppure, in alternativa, essendo le azioni assiali nulle, si ha che il momento statico rispetto l'asse neutro è nullo. 
 Da quest'ultima equazione è perciò possibile determinare $x$.
 \begin{align}
@@ -149,7 +149,14 @@ Come si può notare la verifica è soddisfatta in tutte le sezioni.
     \end{tabular}
 \end{table}
 
-\section{Ampiezza fessure}
+\section{Verifiche di fessurazione}
+In questo paragrafo vengono illustrate le verifiche di fessurazione per gli stati limite di esercizio in combinazione frequente e quasi caratteristica della sezione più sollecitata a momento positivo, ovvero la sezione di campata C5, come ben visibile nei diagrammi precedentemente riportati a pagine \pageref{fig:trave_SLS_FREQ_momento} e \pageref{fig:trave_SLS_QP_momento}.
+Si riportano qui i valori delle sollecitazioni che verranno prese in esame:
+\begin{equation}
+    M_{Ed}^\textup{Freq.} = \SI{102.61}{\kilo\newton\metre} \quad
+    M_{Ed}^\textup{QP} = \SI{79.04}{\kilo\newton\metre}
+\end{equation}
+
 \paragraph{Momento di  prima fessurazione}
 Occorre come prima cosa controllare se la sezione si fessuri: in tal caso si procederà al calcolo della sua ampiezza.
 Per farlo si calcola il momento di prima fessurazione 
@@ -161,6 +168,13 @@ dove
     \sigma_{ct} = \frac{ f_\textup{ctm} }{ 1.2 }  = \frac{ \SI{2.56}{\mega\pascal} }{ 1.2 } = \SI{2.14}{\mega\pascal}    
 \]
 mentre la distanza $x$ dall'asse neutro (calcolata ponendo il momento statico pari a zero come visto precedentemente) e il momento di inerzia $I_{nn}$ sono calcolati considerando anche il contributo a trazione del calcestruzzo. 
+Si veda la nomenclatura adottata in figura \ref{fig:sle_convenzioneTraz}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.25\textheight]{IMG/IPE_sle_cls_Traz.pdf}
+    \caption{Convenzione e nomenclatura utilizzata agli SLE, con ipotesi di CLS resistente a trazione}
+    \label{fig:sle_convenzioneTraz}
+  \end{figure}
 
 Essi valgono:
 \[
@@ -290,9 +304,10 @@ da cui:
 \end{split}
 \]
 \subsection{Metodo semplificato}
-Il metodo semplificato consiste nel controllare che le armatture addottate e la spaziature tra esse siano inferiori ai limiti imposti dalle \normaref{Tab. C4.1.II-III}.
+Il metodo semplificato consiste nel controllare che le armature adottate e la spaziature tra esse siano inferiori ai limiti imposti dalle \normaref{Tab. C4.1.II-III}.
 
-Considerando la condizione più sfavorevole con $\sigma_{s} = \SI{245.925}{\mega\pascal} \simeq \SI{240}{\mega\pascal}$ il diametro massimo da addottare è un Ø20, mentre la spaziatura massima è \SI{250}{\milli\metre}. 
+Considerando la condizione più sfavorevole con $\sigma_{s} = \SI{245.925}{\mega\pascal} \simeq \SI{240}{\mega\pascal}$ il diametro massimo da adottare è un Ø20, mentre la spaziatura massima è \SI{250}{\milli\metre}. 
 Avendo adottato 4Ø18, il diametro è inferiore a quello massimo e la spaziatura massima è sicuramente maggiore della spaziatura reale avendo una base di \SI{300}{\milli\metre}. 
 Pertanto anche con il metodo semplificato la verifica a fessurazione è soddisfatta \checked.
 
+\section{Verifiche di deformabilità}

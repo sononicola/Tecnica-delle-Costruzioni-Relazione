@@ -2,8 +2,8 @@
 \section{Progetto della sezione maggiormente sollecitata}
 In riferimento ai valori mostrati in precedenza nella tabella \ref{tab:trave_ULS_momento} a pagina \pageref{tab:trave_ULS_momento}, si progetta ora la sezione in calcestruzzo armato considerando quella maggiormente sollecitata.
 Nel caso in esame è quella in appoggio 5 avente un momento pari a $\SI{-247.45}{\kilo\newton\metre}$.
-Essendo soggetta a momento flettente negativo, sarà considerata invertita rispetto la dispozione reale e considerata quindi a momento flettente positivo, con le amrature invertite. 
-A tale scopo verrà utilizzata la nomenclatura \emph{inv.} nelle tabelle a seguire per indicare tutte quelle sezioni che sono state inveritite.
+Essendo soggetta a momento flettente negativo, sarà considerata invertita rispetto la disposizione reale e considerata quindi a momento flettente positivo, con le armature invertite. 
+A tale scopo verrà utilizzata la nomenclatura \emph{inv.} nelle tabelle a seguire per indicare tutte quelle sezioni che sono state invertite.
 
 \begin{figure}[ht]
   \centering
@@ -12,14 +12,14 @@ A tale scopo verrà utilizzata la nomenclatura \emph{inv.} nelle tabelle a segui
   \label{fig:slu_progetto}
 \end{figure}
 
-Utilizzando la convenzione di segni riportata in figura \ref{fig:slu_progetto} e il polo $\mathbf{P}$ riportato, è possibile scrivere il sistema per determinare i valori dell'altezza utile $d$ e della quantita di armature inferiori $A_s$ che soddisfano il momento flettente applicato. 
+Utilizzando la convenzione di segni riportata in figura \ref{fig:slu_progetto} e il polo $\mathbf{P}$ riportato, è possibile scrivere il sistema per determinare i valori dell'altezza utile $d$ e della quantità di armature inferiori $A_s$ che soddisfano il momento flettente applicato. 
 \begin{equation}
   \begin{cases}
     C_c + C_s - T_s = 0 \\
     C_c \left(d - \lambda\,x\right) + C_s \left(d - d^{\prime\prime}\right) = M_{Ed}
   \end{cases}
 \end{equation}
-Sistema che è possibile risolvere esplicitando i valori delle risultanti e facendo delle ipotesi per ridurrre il numero di variabili. 
+Sistema che è possibile risolvere esplicitando i valori delle risultanti e facendo delle ipotesi per ridurre il numero di variabili. 
 Si fissa il rapporto di armatura $\beta = 0.2$, ovvero pari al minimo possibile, in quanto il momente flettente a segno opposto nella sezione in esame è nullo.
 Inoltre il progetto è vincolato, pertanto la base è imposta a \SI{300}{\milli\metre}.
 Come copriferri $d^\prime,d^{\prime\prime}$ si scelgono entrambi uguali e pari a \SI{40}{\milli\metre}.
@@ -55,10 +55,10 @@ Vengono perciò adottati i 6Ø18 che rispettano i requisiti, come di seguito dim
     &= \SI{293}{\milli\metre} < b = \SI{300}{\milli\metre} \quad \checked ,
   \end{split}
 \end{equation}
-mentre per le armature superiori si scelgono 2Ø18 con unica funzione di reggistaffa.
+mentre per le armature superiori si scelgono 2Ø18 con unica funzione di reggi staffa.
 
 Un ulteriore controllo da fare è il rispetto del minimo e massimo di armatura rispetto la sezione di calcestruzzo.
-Si utilizzano come aree di acciaio di verifica 6Ø18 e 2Ø18, che sono il massimo e minimo valore che si prevede debbano essere neccessari lungo tutta la trave.
+Si utilizzano come aree di acciaio di verifica 6Ø18 e 2Ø18, che sono il massimo e minimo valore che si prevede debbano essere necessari lungo tutta la trave.
 \begin{equation}
   A_s =
   \begin{bmatrix}
@@ -82,7 +82,7 @@ inoltre si deve avere un quantitativo mimino specificatamente in zona tesa
   \quad \checked
 \end{equation}
 \section{Verifica della sezione maggiormente sollecitata}
-Per verificare se la sezione progettata è resistente al momento flettente appliato, occorre innanzitutto controllare in quale campo defromativo essa appartiene e, successivamente, applicare l'equilibrio alla rotazione per trovare l'$M_{Rd}$ cercato.
+Per verificare se la sezione progettata è resistente al momento flettente appliccato, occorre innanzitutto controllare in quale campo deformativo essa appartiene e, successivamente, applicare l'equilibrio alla rotazione per trovare l'$M_{Rd}$ cercato.
 
 Come prima cosa si verificano quali campi possono esistere, si ha infatti:
 \begin{equation}

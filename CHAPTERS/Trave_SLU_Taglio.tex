@@ -5,6 +5,17 @@ Si sceglie di usare staffe ovunque e non ferri piegati, pertanto l'inclinazione 
 Agli appoggi, dove quindi il taglio è maggiore, si verificherà prima se è sufficiente la resistenza a taglio senza armatura specifica, in caso contrario si procederà al progetto della stessa.
 In campata invece, dove il taglio è pressoché nullo, si utilizzerà sicuramente l'armatura trasversale minima.
 
+\section{Armatura a taglio minima}
+Le \norma{NTC18} fissano l'obbligo di disporre un quantitativo minimo di armatura trasversale indipendentemente dalla resistenza della trave. 
+Tale quantitativo è calcolabile come:
+\begin{equation}
+    A_{st, min} = \num{1.5} \, b \si{\milli\metre\squared\per\metre} = \SI{450}{\milli\metre\squared\per\metre} \quad ,
+\end{equation}
+con un passo:
+\begin{equation}
+    s_{max} = \min \left\{ 0.8\,d ; \frac{\SI{1000}{\milli\metre}}{3} \; 15\, \varnothing_{long} \right\} = \SI{270}{\milli\metre}
+\end{equation} 
+
 \section{Progetto e verifica agli appoggi}
 \paragraph{Verifica senza armatura specifica a taglio}
 \begin{equation}
@@ -21,7 +32,7 @@ dove
 \]
 e in cui $A_{sl}$ corrisponde all'area tesa longitudinale $A_s$ e $b_w$ coincide con la base $B$ della sezione rettangolare.
 
-Tale procedimento è stato appliccato per tutti gli appoggi e come si evince dalla tabella \ref{tab:V_no_specific_armor} non è sufficiente a garantire la resistenza a taglio. 
+Tale procedimento è stato applicato per tutti gli appoggi e come si evince dalla tabella \ref{tab:V_no_specific_armor} non è sufficiente a garantire la resistenza a taglio. 
 \begin{table}[htb]
     \centering
     \scriptsize
@@ -184,3 +195,17 @@ Nella tabella \ref{tab:V_with_armor} viene riportato tale procedimento per tutte
     \bottomrule
     \end{tabular}
     \end{table}
+
+\section{Zone di campata}
+Nelle zone centrali delle campate si utilizza invece l'armatura minima precedentemente calcolata.
+Avendo scelto staffe a due bracci Ø8, l'area vale $A_{st} = 2 \frac{\pi \varnothing^2}{4} = \SI{100.531}{\milli\metre\squared}$, corrispondente ad un numero di staffe:
+\[
+    n_{st, min} = \frac{A_{st, min}}{A_{st}} = \SI{4.476}{staffe\per\metre}    
+\]
+ed ad un passo di:
+\[
+    s_{st, max} = \frac{\SI{1000}{\milli\metre}}{n_{st,min}} = \SI{223.4}{\milli\metre} \implies \SI{220}{\milli\metre}  \quad .
+\]
+
+Con tale valore di 2br.Ø8/220 si ottiene il medesimo taglio resistente della sezione (ad esempio) A1 dx precedentemente calcolata in tabella \ref{tab:V_with_armor}, ovvero $V_{Rd} = \SI{185.076}{\kilo\newton}$.
+
