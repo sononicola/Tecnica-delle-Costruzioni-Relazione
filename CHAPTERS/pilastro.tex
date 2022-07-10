@@ -46,13 +46,13 @@ Per quanto riguarda l'armatura trasversale a taglio si deve avere:
 Da cui si scelgono staffe a due bracci Ø8/\SI{150}{\milli\metre}
 
 \section{Verifica presso-flessione}
-Sebbene il pilastro sia sottoposto a puro sforzo assiale, la normativa richiede di considerare un minimo quantito di eccentricità calcolabile come
+Sebbene il pilastro sia sottoposto a puro sforzo assiale, la normativa richiede di considerare un minimo quantitativo di eccentricità calcolabile come
 \[
     e_0 = \max \left(\frac{l_0}{200};  \SI{20}{\milli\metre} \right)  = \max \left(\frac{3500}{200};  20 \right)\si{\milli\metre} = \SI{20}{\milli\metre}
 \]
 la quale genera un momento flettente pari a 
 \begin{equation}
-    M_{Ed} = N_{Ed}\cdot e_0  = \SI{1425.75}{\kilo\newton} \cdot (\SI{20}{\milli\metre} = \SI{28.52}{\kilo\newton\metre}
+    M_{Ed} = N_{Ed}\cdot e_0  = \SI{1425.75}{\kilo\newton} \cdot \SI{20}{\milli\metre} = \SI{28.52}{\kilo\newton\metre}
 \end{equation}
 
 Per verificarne la resistenza a presso-flessione si fa uso del diagramma M-N che permette di rappresentare la resistenza della sezione  per tutti i valori possibili di azione assiale.
@@ -151,7 +151,7 @@ e l'eccentricità del secondo ordine e il momento divengono
 Sommando  i due contributi $M_{0,Ed}$ e $M_2$ si ottiene il momento sollecitante totale  $M_{Ed} = \SI{55.14}{\kilo\newton\metre}$.
 È quindi possibile verificare tramite il diagramma M-N riportato in figura \ref{fig:MN_diagram_secondo_ordine} che è all'interno del dominio resistente $M_{Rd}$, e pertanto la verifica di stabilità risulta soddisfatta.
 
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{IMG/M_N_diagram_pilastro_secondo_ordine.pdf}
     \caption{Diagramma MN con sollecitazione flettente tenente conto degli effetti del secondo ordine tramite il metodo della curvatura nominale}

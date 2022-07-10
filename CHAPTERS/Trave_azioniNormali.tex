@@ -147,12 +147,23 @@ la quale soddisfa le ipotesi di altezza dell'asse neutro e delle condizioni di t
 % 'lamb': 0.4138260346516767,
 % 'Nrd': 0.0,
 % 'Mrd': 247633547.16419485
-\section{Progetto di tutte le altre sezioni}
-\section{Verifica di tutte le altre sezioni}
+\section{Progetto e verifica di tutte le altre sezioni}
+Per eseguire in modo rapido il progetto di tutte le sezioni coinvolte all'interno della trave si è fatto uso del diagramma dell'azione del momento flettente sollecitante a cui sono stati sovrapposti i momenti resistenti di sezioni simili ma con quantitativi di barre diverse. 
+Tale rappresentazione è visibile in figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti}. 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{IMG/ULS_M_progettazioneTramiteMomentiResistenti.pdf}
+  \caption{Progettazione SLU tramite i momenti resistenti}
+  \label{fig:ULS_M_progettazioneTramiteMomentiResistenti}
+\end{figure}
+Da tale progetto si sono perciò determinate i veri quantitativi di armattura da adottare in modo che venisse soddisfatta la verifica in ciascun punto.
+In tabella \ref{tab:ULS_M_VerificaSezioni} sono riportati i quantitativi di armatura e i relativi momenti resistenti per le sezioni caratteristiche dell'intera trave.
+%
   \begin{table}[htb]
     \centering
     \scriptsize
     \caption{ULS}
+    \label{tab:ULS_M_VerificaSezioni}
     \begin{tabular}{
         l
         c
@@ -203,4 +214,71 @@ la quale soddisfa le ipotesi di altezza dell'asse neutro e delle condizioni di t
     \end{tabular}
     \end{table}
 
-    
+\section{Traslazione del diagramma dei momenti sollecitanti e diagramma del momento resistente}
+Prima di poter rappresentare il vero diagramma dei momenti reistenti è necessario traslare il diagramma dei momenti sollecitanti per far fronte al contributo sollecitante dovuto alla trazione che le armature tese aggiungono.
+
+Tale valore di traslazione è possibile calcolarlo mediante la formula \normaref{4.1.30} delle \norma{NTC18} e vale:
+\begin{equation}
+    a_1 = \frac{0.9 \, d \, \cot\vartheta}{2} \; \text{nel verso meno favorevole} \quad.
+\end{equation}
+Essendo $\vartheta$ limitato da normativa, si sceglie il meno favorevole corrispondente a $\cot\vartheta = 2.5$. 
+Pertanto il quantitativo da traslare è pari a 
+\[
+    a_1 = \frac{0.9 \, \SI{460}{\milli\metre} \, 2.5}{2} = \SI{0.5175}{\metre} \quad
+\]
+e la precedente raffigurazione di figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti} diviene ora quella della figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti_trasposto}.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{IMG/ULS_M_progettazioneTramiteMomentiResistenti_traslato.pdf}
+  \caption{Progettazione SLU tramite i momenti resistenti con diagramma traslato}
+  \label{fig:ULS_M_progettazioneTramiteMomentiResistenti_traslato}
+\end{figure}
+
+\section{Lunghezza di ancoraggio e disposizione finale delle armature}
+Per ottenere la disposizione finale della armature è necessario calcolare il quantitativo minimo di cui la barre devono sovrapporsi.
+Tale lunghezza di ancoraggio è possibile calcolarla facendo riferimento all'\norma{EC2} al \normaref{\S 8.4} e deve essere sosfatto $l_b l_{b,req}> $
+
+\[
+\begin{split}
+f_{bd} 
+&= 2.25 \cdot \eta_{1} \cdot \eta_{2} \cdot f_{ctd}  
+= 2.25 \cdot 1 \cdot 1 \cdot \SI{1.197}{\mega\pascal} 
+= \SI{2.693}{\mega\pascal}  
+\\
+l_{b,req} 
+&= d_{barre} \frac{ \sigma_{d} }{ 4 \cdot f_{bd} }  
+= \SI{18}{\milli\metre}  \frac{ \SI{391.304}{\mega\pascal} }{ 4 \cdot \SI{2.693}{\mega\pascal} } 
+= \SI{653.808}{\milli\metre}  
+\\
+l_{b,min} 
+&= 
+\max { \left( 0.3 \, l_{b,req} ,\  10 \, d_{barre} ,\  100 \right) }  
+= \max { \left( 0.3 \cdot 653.808 ,\  10 \cdot 18 ,\  100 \right) } \,\si{\milli\metre}
+= \SI{196.143}{\milli\metre} \; \;\textrm{trazione}
+\\
+l_{b,min} 
+&= \max { \left( 0.6 \, l_{b,req} ,\  10 \, d_{barre} ,\  100 \right) }  
+= \max { \left( 0.6 \cdot 653.808 ,\  10 \cdot 18 ,\  100 \right) } \,\si{\milli\metre}
+= \SI{392.285}{\milli\metre} \; \;\textrm{compressione}
+\\
+l_{b} 
+&= \alpha_{1} \cdot \alpha_{2} \cdot \alpha_{3} \cdot \alpha_{4} \cdot \alpha_{5} \cdot l_{b,req}  
+= 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot \SI{653.808}{\milli\metre} 
+= \SI{653.808}{\milli\metre} > l_{b,min} \quad \checked
+\end{split}
+\]
+in cui tutti i coefficienti $\alpha$ valgono $1$ in quanto le barre sono dritte, il riprimento delle barre e il confinamento è adeguato, le barre non sono saldate e non c'è pressione trasversale.
+I coefficienti $\eta$ corrispondono a barre con buona aderenza e con diametro minore al Ø18.
+Non avendo problemi di dimensione agli appoggi (essendo la trave ad altezza fuori spessore) la sollecitazione $\sigma_{d}$ delle barre è stata presa quella massima possibile, senza effettuare calcoli più raffinati.
+
+La lunghezza di ancoraggio è perciò pari a circa \SI{66}{\centi\metre}.
+In appoggio tale lunghezza è considerata fino a metà pilastro, per poi svoltare verticalmente all'interno di esso.
+
+Una disposizione schematica delle armature è visibile in figura \ref{fig:ULS_M_ULS_M_DisposioneArmature}: si è cercato di semplificare il più possibile la loro disposizione ed eliminare le zone in cui ci sarebbe stata una barra molto corta. 
+Tra il primo e il secondo appoggio, nella parte di momento positivo, ne è un esempio.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{IMG/ULS_M_DisposioneArmature.pdf}
+  \caption{Disposizione schematica della armatura con raffigurazione della lunghezza di ancoraggio}
+  \label{fig:ULS_M_ULS_M_DisposioneArmature}
+\end{figure}
