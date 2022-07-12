@@ -311,3 +311,78 @@ Avendo adottato 4Ø18, il diametro è inferiore a quello massimo e la spaziatura
 Pertanto anche con il metodo semplificato la verifica a fessurazione è soddisfatta \checked.
 
 \section{Verifiche di deformabilità}
+
+\subsection{Metodo esplicito}
+Il metodo esplicito per il calcolo della deformazione consiste nell'integrazione della curvatura ottenuta tramite il principio dei lavori virtuali tra un sistema di forze $M_F$ con forza unitaria (teorema di Castigliano) e il sistema degli spostamenti reali $M_Q$, ovvero quello del carico distribuito corrispondente alla combinazione che genera il massimo momento flettente della campata considerata.
+
+Avendo la campata un momento ovviamente non costante e avendo inoltre varie disposizioni di armatura, occorre suddividerla in varie zone in base allo stato in cui si trova: se fessuruta o non fessurata.
+Ovvero se il momento applicato supera o meno quello critico.
+
+In accordo anche a quanto mostrato schematicamente in figura \ref{fig:sle_deformazione}, si vengono a creare 8 diverse zone, occorre perciò integrare in ognuna di essi con diversi valori degli estremi (coordinata $\xi$).
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.25\textheight]{IMG/IPE_deformazione.pdf}
+    \caption{Rappresentazione e nomenclatura del calcolo della deformazione tramite il metodo esplicito}
+    \label{fig:sle_deformazione}
+  \end{figure}
+
+Per ogni tratto $j-$esimo la deformazione (coincidente con il lavoro virtuale essendo la forza unitaria) la si calcola come:
+\begin{equation}
+    1\cdot \delta_j \equiv \delta_j = \int_{\xi_i}^{\xi_{i+1}} M_F \cdot \chi
+\end{equation}
+dove $M_F$ rappresenta l'equazione del sistema delle forze e si divide nel tratto di sinistra e destra rispetto il punto di massimo
+\begin{equation}
+    M_F = 
+    \begin{cases}
+        - \frac{l-\xi_{max}}{l}\xi_{max}  &\text{per} \quad \xi<\xi_{max}\\
+        - \frac{l-\xi_{max}}{l}\xi + (\xi-\xi_{max})  &\text{per} \quad \xi>\xi_{max}
+    \end{cases}
+\end{equation} 
+mentre la curvatura $\chi$ è calcolabile come:
+\begin{equation}
+    \chi =  \frac{M_Q}{E_c \, I_1} \left( 1 + \zeta (c -1) \right)
+\end{equation}
+in cui $c$ è il rapporto $\dfrac{I_1}{I_2}$ e rappresenta se la sezione è fessurata o meno. Di fatto quando non è fessurata $c = 1$. $\zeta$ è un coefficiente di distribuzione del carico e vale:
+\[
+    \zeta = 1 - \beta \left(\frac{M_{cr}}{M_Q}\right)^2   \quad \text{$\beta = 0.5$ carichi permanenti} \quad .
+\]
+Infine $M_Q$ rappresenta l'equazione del sistema degli spostamenti reali, calcolato con la combinazione di carico quasi permanente che rende il massimo momento flettente di campata.
+Tale sistema è raffigurato in figura \ref{fig:sle_deformazione_MQ}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.25\textheight]{IMG/SLS_QP_M_deflectionC5.pdf}
+    \caption{Equazione del sistema degli spostamenti reali relativo alla campata 5}
+    \label{fig:sle_deformazione_MQ}
+  \end{figure}
+
+Con le equazioni sopra esposte, suddividendo la campata nelle seguenti coordinate: 
+\[
+    \begin{bmatrix}
+        0\\  780\\ 1232\\ 1710\\ 3152\\ 4577\\ 5118\\ 5566\\ 6150
+    \end{bmatrix}    
+    \si{\milli\metre}
+\] 
+e avendo il massimo di campata a \SI{3152}{\milli\metre}, si ottengono i seguenti valori di deformazione:
+\[
+    \begin{bmatrix}
+        -0.065168\\ -0.019770\\ 0.060296\\ 0.886420\\ 0.864680\\ 0.058185\\ -0.023314\\ -0.037858
+    \end{bmatrix}    
+    \si{\milli\metre}
+\].
+
+Sommati danno una deformazione totale $\delta_{tot} = \SI{1.72}{\milli\metre} <\delta_{limite} = \frac{l}{500\div 250} = \num{12.3} \div \SI{24.6}{\milli\metre} \quad\checked$ 
+
+\section{Metodo semplificato}
+Al \normaref{\S C4.1.4} è spiegato come effettuare la verifica semplificata nel caso di luci inferiori ai \SI{10}{\metre}.
+Occorre controllare che la snellezza $\frac{\lambda}{h}$ sia inferiore alla limitazione:
+\begin{equation}
+    K  \, \left( 11 + \frac{0.015\,f_{ck}}{\rho + \rho^\prime}\right) \, \left( \frac{500 \, A_{s, \textup{eff}}}{f_{yk} \, A_{s, \textup{calc}}} \right)
+\end{equation}
+dove $K = 1.5$ per campate intermedie di travi continue, $\rho$ e $\rho^\prime$ sono i rapporti geometrici di armatura compressi e tesi e valgono rispettivamente \SI{0.67}{\percent} e \SI{0.34}{\percent}.
+$A_{s, \textup{eff}}$ è l'armatura presente nella trave e $A_{s, \textup{calc}}$ è quella di progetto che può essere calcolato come quanto visto nel capitolo di progettazione della sezione maggiormente sollecitata. 
+Con un $\beta = 0.2$ e $M_{Ed} = \SI{162}{\kilo\newton\metre}$ si ha $A_{s, \textup{calc}} = \SI{1150}{\milli\metre\squared}$.
+
+Sostituendo si ottiene:
+\[
+    \lambda = \frac{\SI{6150}{\milli\metre}}{\SI{500}{\milli\metre}} = \num{12.3} < \num{70.58} \quad \checked
+\]

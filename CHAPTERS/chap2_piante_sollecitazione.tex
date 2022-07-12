@@ -160,7 +160,72 @@
 %&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
 		
 
-\section{Solaio}
+\clearpage
+\section{Sollecitazioni solaio - SLU}
+L'analisi dei carichi riguardante il solaio è di fatto già fatta, essendo in prossimità della trave sopra esposta.
+Si tratta soltanto di riportare i carichi a metro quadro, senza moltiplicarli per la lunghezza di influenza.
+Lo schema statico è quello mostrato in figura e si hanno due zone diverse in quanto la prima campata corrisponde alla zona esterna del terrazzo, mentre le altro due sono interne l'edificio.
+Soltanto esse avranno il carico distribuito equivalenti delle pareti interne.
+Mentre la zona esterna avrà il carico variabile della neve.
+
+Da tale analisi dei carichi si ottengono i valori sfavorevoli e favorevoli di campata:
+\begin{equation}
+	\begin{split}
+	\text{Campata 1} \quad Q_{max} &= \SI{15.73}{\kilo\newton\per\metre\squared} \quad Q_{min} = \SI{4.97}{\kilo\newton\per\metre\squared} \\
+	\text{Campata 2 - 3} \quad Q_{max} &= \SI{15.59}{\kilo\newton\per\metre\squared} \quad Q_{min} = \SI{6.90}{\kilo\newton\per\metre\squared}
+	\end{split}\quad .
+\end{equation}
+Tali carichi sono riferiti ad un metro lineare: considerando un solo travetto di interasse $i = \SI{500}{\milli\metre}$, generano gli inviluppi di momento flettente e taglio riportati nelle figure \ref{fig:solaio_ULS_momento} e \ref{fig:solaio_ULS_taglio}.
+
+
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.6\textwidth]{IMG/diagrammi_solaio/ULS_M_travetto.pdf}
+\caption{Diagramma del momento agenti sul singolo travetto in combinazione di carico SLU}
+\label{fig:solaio_ULS_momento}
+\end{figure}
+\begin{table}[H]
+\footnotesize
+\centering
+\caption{Valori del momento con combinazione di carico SLU nei punti più significativi del travetto}
+\label{tab:solaio_ULS_momento}
+	\begin{tabular}{lS[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]}
+		\toprule
+		{} & {A1} & {C1} & {A2} & {C2} & {A3} & {C3} & {A4} \\
+		\midrule
+		$s\,\si{[\metre]}$  				& 0.00 & 1.45 	& 3.50 		& 5.97 & 8.50 & 10.84 & 12.50 \\
+        $M^{-}\,\si{[\kilo\newton\metre]}$ 	& 0.00 & -1.28 	& -15.67 	& 0.00 & -17.45 & 0.00 & 0.00 \\
+        $M^{+}\,\si{[\kilo\newton\metre]}$ 	& 0.00 & 8.31 	& 0.00 		& 11.73 & 0.00 & 10.72 & 0.00 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\clearpage
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.6\textwidth]{IMG/diagrammi_solaio/ULS_V_travetto.pdf}
+	\caption{Diagramma del taglio agenti sul singolo travetto in combinazione di carico SLU}
+	\label{fig:solaio_ULS_taglio}
+	\end{figure}
+	\begin{table}[H]
+	\footnotesize
+	\centering
+	\caption{Valori del taglio con combinazione di carico SLU nei punti più significativi del travetto}
+	\label{tab:solaio_ULS_taglio}
+		\begin{tabular}{lS[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]S[table-format=-3.2]}
+			\toprule
+			{} & {A1} & {A2} & {A3}  & {A4} \\
+			\midrule
+			$s\,\si{[\metre]}$			 & 0.00  & 3.50 	& 8.50 	& 12.50 \\
+			$V^{+}\,\si{[\kilo\newton]}$ & 11.42 & 20.17  	& 19.95  & 0.00  \\
+			$V^{-}\,\si{[\kilo\newton]}$ & 0.00  & -18.24 	& -20.82 & -12.91  \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Pilastro}
 
