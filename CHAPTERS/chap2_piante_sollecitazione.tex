@@ -30,6 +30,7 @@
 
 \clearpage
 \section{Sollecitazioni trave}
+Vengono di seguito riportati i diagrammi del momento flettente e del taglio già ricavati nella precente relazione di Sicurezza Strutturale.
 \begin{landscape}
 \subsection{SLU}
 \begin{figure}[H]
@@ -79,7 +80,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\subsection{SLS CHAR}
+\subsection{SLE Caratteristica}
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.6\textwidth]{IMG/diagrammi_trave/SLS_CHAR_M.pdf}
@@ -105,7 +106,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\subsection{SLS FREQ}
+\subsection{SLE Frequente}
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.6\textwidth]{IMG/diagrammi_trave/SLS_FREQ_M.pdf}
@@ -131,7 +132,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\subsection{SLS QP}
+\subsection{SLE Quasi Permanente}
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.6\textwidth]{IMG/diagrammi_trave/SLS_QP_M.pdf}
@@ -227,7 +228,7 @@ Tali carichi sono riferiti ad un metro lineare: considerando un solo travetto di
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Pilastro}
+\section{Sollecitazioni Pilastro}
 
 \begin{figure}[htb]
 	\centering
@@ -294,3 +295,16 @@ Tali carichi sono riferiti ad un metro lineare: considerando un solo travetto di
 	\caption{Andamento dello sforzo assiale agente sul pilastro P27 in funzione dell'altezza}
 	\label{fig:AndamentoP27}
 	\end{figure}
+	\begin{table}[H]
+		\footnotesize
+		\centering
+		\caption{Valori massimi dello sforzo assiale alla base del pilastro per le varie combinazioni}
+		\label{tab:pilastro_sforzo_assiale}
+		\begin{tabular}{lS[table-format=4.2]S[table-format=4.2]S[table-format=4.2]S[table-format=4.2]}
+			\toprule
+			{} & {SLU} & {SLE Carat.} & {SLE Freq} & {SLE QP}  \\
+			\midrule
+			$N\,\si{[\kilo\newton]}$ 	& 1416.00 & 990.79 	& 877.96 	& 829.35  \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
