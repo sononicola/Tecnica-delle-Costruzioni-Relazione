@@ -20,7 +20,7 @@ Utilizzando la convenzione di segni riportata in figura \ref{fig:slu_progetto} e
   \end{cases}
 \end{equation}
 Sistema che è possibile risolvere esplicitando i valori delle risultanti e facendo delle ipotesi per ridurre il numero di variabili. 
-Si fissa il rapporto di armatura $\beta = 0.2$, ovvero pari al minimo possibile, in quanto il momente flettente a segno opposto nella sezione in esame è nullo.
+Si fissa il rapporto di armatura $\beta = 0.2$, ovvero pari al minimo possibile, in quanto il momento flettente a segno opposto nella sezione in esame è nullo.
 Inoltre il progetto è vincolato, pertanto la base è imposta a \SI{300}{\milli\metre}.
 Come copriferri $d^\prime,d^{\prime\prime}$ si scelgono entrambi uguali e pari a \SI{40}{\milli\metre}.
 Infine si fissa il pieno utilizzo delle capacità meccaniche dei materiali: per cui l'acciaio superiore risulta snervato, e di conseguenza $\sigma_s^\prime = f_{yd}$, e il calcestruzzo a collasso, e di conseguenza $\sigma_c = f_{cd}$.
@@ -215,7 +215,7 @@ In tabella \ref{tab:ULS_M_VerificaSezioni} sono riportati i quantitativi di arma
     \end{table}
 
 \section{Traslazione del diagramma dei momenti sollecitanti e diagramma del momento resistente}
-Prima di poter rappresentare il vero diagramma dei momenti reistenti è necessario traslare il diagramma dei momenti sollecitanti per far fronte al contributo sollecitante dovuto alla trazione che le armature tese aggiungono.
+Prima di poter rappresentare il vero diagramma dei momenti resistenti è necessario traslare il diagramma dei momenti sollecitanti per far fronte al contributo sollecitante dovuto alla trazione che le armature tese aggiungono.
 
 Tale valore di traslazione è possibile calcolarlo mediante la formula \normaref{4.1.30} delle \norma{NTC18} e vale:
 \begin{equation}
@@ -226,17 +226,17 @@ Pertanto il quantitativo da traslare è pari a
 \[
     a_1 = \frac{0.9 \, \SI{460}{\milli\metre} \, 2.5}{2} = \SI{0.5175}{\metre} \quad
 \]
-e la precedente raffigurazione di figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti} diviene ora quella della figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti_trasposto}.
+e la precedente raffigurazione di figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti} diviene ora quella della figura \ref{fig:ULS_M_progettazioneTramiteMomentiResistenti_traslato}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{IMG/ULS_M_progettazioneTramiteMomentiResistenti_traslato.pdf}
-  \caption{Progettazione SLU tramite i momenti resistenti con diagramma traslato}
+  \caption[Progettazione SLU tramite i momenti resistenti con diagramma traslato]{Progettazione SLU tramite i momenti resistenti con diagramma traslato. \emph{(I "buchi" bianchi all'interno della figura sono solo dovuti ad un problema non ancora da me risolto con il codice Python usato per generare il grafico stesso. Allo stesso modo il valore del momento all'incastro è da intendersi costante nell'ultimo tratto e non terminante poco prima.)}}
   \label{fig:ULS_M_progettazioneTramiteMomentiResistenti_traslato}
 \end{figure}
 
 \section{Lunghezza di ancoraggio e disposizione finale delle armature}
-Per ottenere la disposizione finale della armature è necessario calcolare il quantitativo minimo di cui la barre devono sovrapporsi.
-Tale lunghezza di ancoraggio è possibile calcolarla facendo riferimento all'\norma{EC2} al \normaref{\S 8.4} e deve essere sosfatto $l_b l_{b,req}> $
+Per ottenere la disposizione finale delle armature è necessario calcolare il quantitativo minimo di cui la barre devono sovrapporsi.
+Tale lunghezza di ancoraggio è possibile calcolarla facendo riferimento all'\norma{EC2} al \normaref{\S 8.4} e deve essere soddisfatto $l_b l_{b,req}> $
 
 \[
 \begin{split}
@@ -267,7 +267,7 @@ l_{b}
 = \SI{653.808}{\milli\metre} > l_{b,min} \quad \checked
 \end{split}
 \]
-in cui tutti i coefficienti $\alpha$ valgono $1$ in quanto le barre sono dritte, il riprimento delle barre e il confinamento è adeguato, le barre non sono saldate e non c'è pressione trasversale.
+in cui tutti i coefficienti $\alpha$ valgono $1$ in quanto le barre sono dritte, il ricoprimento delle barre e il confinamento è adeguato, le barre non sono saldate e non c'è pressione trasversale.
 I coefficienti $\eta$ corrispondono a barre con buona aderenza e con diametro minore al Ø18.
 Non avendo problemi di dimensione agli appoggi (essendo la trave ad altezza fuori spessore) la sollecitazione $\sigma_{d}$ delle barre è stata presa quella massima possibile, senza effettuare calcoli più raffinati.
 

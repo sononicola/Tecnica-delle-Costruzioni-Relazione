@@ -1,0 +1,49 @@
+\chapter{Normativa e materiali utilizzati}\label{chap:materiali}
+\section{Norme}
+Le normative tecniche impiegate per lo svolgimento di progettazione e verifica strutturale degli elementi sopra esposti sono:
+\begin{enumerate}
+    \item \norma{Decreto Ministeriale 17 gennaio 2018}, d'ora in poi abbreviato in \norma{NTC18}
+    \item \norma{Circolare 21 gennaio 2019 n. 7}
+    \item Norma \norma{UNI EN 1992-1-1:2005}, d'ora in poi abbreviata in \norma{EC2}
+\end{enumerate}
+
+\section{Materiali}
+I materiali impiegati per l'esecuzione dell'opera sono il calcestruzzo di classe C25/30 e l'acciaio B450C. 
+Entrambi con caratteristiche tecniche derivanti dalle norme sopra esposte e qui di seguito riassunte.
+\paragraph{Calcestruzzo}
+I valori di resistenza del calcestruzzo di classe C25/30 è possibile calcolarli utilizzando le formule di seguito riportate. 
+Come legame costitutivo si è scelto di far uso del parabola esponenzial rettangolo.
+
+\begin{align*}
+    f_{cm} &= f_{ck} + \SI{8}{\mega\pascal} &f_{ctm} &= 0.3 \, f_{ck}^{\frac{2}{3}} \\
+    f_{cd} &= \frac{\alpha_{{cc}} \, f_{ck}}{\gamma_c} &f_{ctk} &= 0.7\, f_{ctm}\\
+    E_{cm} &= \num{22000}\,\left(\frac{f_{cm}}{10}\right)^{0.3} &f_{ctd} &= \frac{\alpha_{{cc}} \, f_{ctk}}{\gamma_c}\\ 
+\end{align*}
+
+\paragraph{Acciaio}
+I valori di resistenza dell'acciaio B450C è possibile calcolarli utilizzando le seguenti espressioni.
+Si è utilizzato un legame costitutivo elastico-perfettamente plastico.
+\begin{align*}
+    f_{yd} &= \frac{f_{ck}}{\gamma_s} & \varepsilon_{se} &= \frac{f_{yd}}{E_S} \\ 
+\end{align*}
+
+I valori numerici sono riportati in tabella \ref{tab:materiali}
+\begin{table}[htb]
+    \centering
+    \caption{Riepilogo dei valori di resistenza dei materiali utilizzati}
+    \label{tab:materiali}
+    \begin{tabular}{lS[table-format=3.3] @{\hspace{2cm}} lS[table-format=3.3]@{\hspace{2cm}} lS[table-format=6.3]}
+        \toprule
+        \multicolumn{4}{l}{Calcestruzzo C25/30 [\si{\mega\pascal} -- \si{\permille}] } & \multicolumn{2}{l}{$\gamma_c = 1.5 \quad \alpha_{cc} = 0.85$} \\
+        \midrule
+        $f_{c,k}$    & 25   & $f_{c,m}$    & 33  & $f_{c,d}$ & 14.17 \\
+        $f_{ct,k}$    & 1.795   & $f_{ct,m}$    & 2.565  & $f_{ct,d}$   & 1.197 \\
+        $\varepsilon_{c2}$ & \SI{2}{\permille} & $\varepsilon_{cu2}$ & \SI{3.5}{\permille} & $E_{c,m}$   & 31475.81 \\
+        \midrule
+        \multicolumn{4}{l}{Acciaio B450C [\si{\mega\pascal} -- \si{\permille}]} & \multicolumn{2}{l}{$\gamma_s = 1.15$} \\
+        \midrule
+        $f_{y,k}$    & 450   & $f_{y,d}$    & 391.30  &    &  \\
+        $\varepsilon_{se}$ & \SI{1.863}{\permille} & $\varepsilon_{su}$ & \SI{10}{\permille} & $E_{s}$ & 210000\\
+        \bottomrule
+    \end{tabular}
+\end{table}

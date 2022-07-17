@@ -30,7 +30,66 @@
 
 \clearpage
 \section{Sollecitazioni trave}
-Vengono di seguito riportati i diagrammi del momento flettente e del taglio già ricavati nella precente relazione di Sicurezza Strutturale.
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+	\scaling{0.55};
+		\point{n1}{00.00}{0};
+		\point{n2}{03.00}{0};
+		\point{n3}{07.50}{0};
+		\point{n4}{11.50}{0};
+		\point{n5}{16.50}{0};
+		\point{n6}{22.65}{0};
+		\point{n7}{26.65}{0};
+		\beam{2}{n1}{n2}[0][1];
+		\beam{2}{n2}{n3}[1][1];
+		\beam{2}{n3}{n4}[1][1];
+		\beam{2}{n4}{n5}[1][1];
+		\beam{2}{n5}{n6}[1][1];
+		\beam{2}{n6}{n7}[1][1];
+		\begin{scope}[scale=0.6]
+			\support{1}{n1};
+			\support{1}{n2};
+			\support{1}{n3};
+			\support{1}{n4};
+			\support{1}{n5};
+			\support{1}{n6};
+			\support{3}{n7}[90];
+		\end{scope};	
+		\dimensioning{1}{n1}{n2}{-1.5}[$\SI{3.00}{\meter}$];
+		\dimensioning{1}{n2}{n3}{-1.5}[$\SI{4.50}{\meter}$];
+		\dimensioning{1}{n3}{n4}{-1.5}[$\SI{4.00}{\meter}$];
+		\dimensioning{1}{n4}{n5}{-1.5}[$\SI{5.00}{\meter}$];
+		\dimensioning{1}{n5}{n6}{-1.5}[$\SI{6.15}{\meter}$];
+		\dimensioning{1}{n6}{n7}{-1.5}[$\SI{4.00}{\meter}$];
+		%Nomi dei punti
+		\notation{4}{n1}{n2}[$1$];
+		\notation{4}{n2}{n3}[$2$];
+		\notation{4}{n3}{n4}[$3$];
+		\notation{4}{n4}{n5}[$4$];
+		\notation{4}{n5}{n6}[$5$];
+		\notation{4}{n6}{n7}[$6$];
+		%
+		\point{m1}{00.00}{-1.5};
+		\point{m2}{03.00}{-1.5};
+		\point{m3}{07.50}{-1.5};
+		\point{m4}{11.50}{-1.5};
+		\point{m5}{16.50}{-1.5};
+		\point{m6}{22.65}{-1.5};
+		\point{m7}{26.65}{-1.5};
+		\notation{6}{m1}{$1$};
+		\notation{6}{m2}{$2$};
+		\notation{6}{m3}{$3$};
+		\notation{6}{m4}{$4$};
+		\notation{6}{m5}{$5$};
+		\notation{6}{m6}{$6$};
+		\notation{6}{m7}{$7$};
+	\end{tikzpicture}
+	\caption{Schema statico trave e relativa nomenclatura utilizzata}
+	\label{fig:schema_statico_trave}
+	\end{figure}%
+Lo schema statico è quello visibile in figura \ref{fig:schema_statico_trave}.
+Vengono di seguito riportati i diagrammi del momento flettente e del taglio già ricavati nella presente relazione di Sicurezza Strutturale.
 \begin{landscape}
 \subsection{SLU}
 \begin{figure}[H]
@@ -163,9 +222,46 @@ Vengono di seguito riportati i diagrammi del momento flettente e del taglio già
 
 \clearpage
 \section{Sollecitazioni solaio - SLU}
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+	\scaling{0.55};
+		\point{n1}{00.00}{0};
+		\point{n2}{03.50}{0};
+		\point{n3}{08.50}{0};
+		\point{n4}{12.50}{0};
+		\beam{2}{n1}{n2}[0][1];
+		\beam{2}{n2}{n3}[1][1];
+		\beam{2}{n3}{n4}[1][1];
+		\begin{scope}[scale=0.6]
+			\support{1}{n1};
+			\support{1}{n2};
+			\support{1}{n3};
+			\support{1}{n4};
+		\end{scope};	
+		\dimensioning{1}{n1}{n2}{-1.5}[$\SI{3.50}{\meter}$];
+		\dimensioning{1}{n2}{n3}{-1.5}[$\SI{5.00}{\meter}$];
+		\dimensioning{1}{n3}{n4}{-1.5}[$\SI{4.00}{\meter}$];
+		%Nomi dei punti
+		\notation{4}{n1}{n2}[$1$];
+		\notation{4}{n2}{n3}[$2$];
+		\notation{4}{n3}{n4}[$3$];
+		%
+		\point{m1}{00.00}{-1.5};
+		\point{m2}{03.50}{-1.5};
+		\point{m3}{08.50}{-1.5};
+		\point{m4}{12.50}{-1.5};
+		\notation{6}{m1}{$1$};
+		\notation{6}{m2}{$2$};
+		\notation{6}{m3}{$3$};
+		\notation{6}{m4}{$4$};
+	\end{tikzpicture}
+	\caption{Schema statico solaio e relativa nomenclatura utilizzata}
+	\label{fig:schema_statico_solaio}
+	\end{figure}
 L'analisi dei carichi riguardante il solaio è di fatto già fatta, essendo in prossimità della trave sopra esposta.
 Si tratta soltanto di riportare i carichi a metro quadro, senza moltiplicarli per la lunghezza di influenza.
-Lo schema statico è quello mostrato in figura e si hanno due zone diverse in quanto la prima campata corrisponde alla zona esterna del terrazzo, mentre le altro due sono interne l'edificio.
+Lo schema statico è quello mostrato in figura \ref{fig:schema_statico_solaio} e si hanno due zone diverse in quanto la prima campata corrisponde alla zona esterna del terrazzo, mentre le altro due sono interne l'edificio.
 Soltanto esse avranno il carico distribuito equivalenti delle pareti interne.
 Mentre la zona esterna avrà il carico variabile della neve.
 
@@ -302,7 +398,7 @@ Tali carichi sono riferiti ad un metro lineare: considerando un solo travetto di
 		\label{tab:pilastro_sforzo_assiale}
 		\begin{tabular}{lS[table-format=4.2]S[table-format=4.2]S[table-format=4.2]S[table-format=4.2]}
 			\toprule
-			{} & {SLU} & {SLE Carat.} & {SLE Freq} & {SLE QP}  \\
+			{} & {SLU} & {SLE Caratteristica} & {SLE Frequente} & {SLE Quasi Permanente}  \\
 			\midrule
 			$N\,\si{[\kilo\newton]}$ 	& 1416.00 & 990.79 	& 877.96 	& 829.35  \\
 			\bottomrule
